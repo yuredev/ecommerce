@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>BootCommerce</title>
-    <link rel="stylesheet" href="../styles/index.css" type="text/css">
-    <link rel="stylesheet" href="../styles/flex.css" type="text/css">
-    <link rel="stylesheet" href="../styles/products.css">
+    <title>SpringBootCommerce</title>
+    <link rel="stylesheet" href="/styles/index.css"  type="text/css">
+    <link rel="stylesheet" href="/styles/flex.css" type="text/css">
+    <link rel="stylesheet" href="/styles/products.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>  
@@ -23,12 +23,10 @@
     <main id="container" class="w100 flex justify-evenly wrap">
         <section id="products">
             <h1>Produtos cadastrados: </h1>
-            <div class="product-unity flex column justify-between">
+            <div th:each="product : ${products}" th:object="${product}" class="product-unity flex column justify-between">
                 <div class="flex justify-between">
-                    <a href="" class="product-title">Camisa do Metallica</a>
-                    <span class="product-price">
-                        60,30 R$
-                    </span>
+                    <a th:href="@{'/product/' + *{id} }" th:text="*{title}" class="product-title"></a>
+                    <span th:text="*{price}" class="product-price"></span>
                 </div>
                 <div class="link-div flex justify-between">
                     <a href="">
@@ -44,7 +42,7 @@
             <h1>Produtos Recomendados: </h1>
             <div class="product-unity flex column justify-between">
                 <div class="flex justify-between">
-                    <a href="" class="product-title">Camisa do Metallica</a>
+                    <a href="" class="product-title">Exemplo</a>
                     <span class="product-price">
                         60,30 R$
                     </span>
@@ -63,7 +61,7 @@
             <h1>Carrinho de Compras: </h1>
             <div class="product-unity flex column justify-between">
                 <div class="flex justify-between">
-                    <a href="" class="product-title">Camisa do Metallica</a>
+                    <a href="" class="product-title">Exemplo</a>
                     <span class="product-price">
                         60,30 R$
                     </span>
@@ -76,7 +74,7 @@
             </div>
         </section>
     </main>
-    <a href="create.html">
+    <a href="/create">
         <i id="add-product" class="material-icons">add_circle</i>
     </a>
 </body>
