@@ -20,11 +20,15 @@ i {
 }
 
 #add-product {
-    color: #1e0d56;
+    color: rgb(19, 0, 128);
     position: fixed;
     font-size: 90px !important;
     bottom: 30px;
     right: 30px;
+}
+
+body {
+    background-color: #EDEDED;
 }
 
 body, html, #container {

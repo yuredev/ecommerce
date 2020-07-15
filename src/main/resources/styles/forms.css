@@ -1,0 +1,46 @@
+input, textarea {
+    height: 40px;
+    width: 400px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    margin: 3px;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 8px;
+    background-color: #F8F8F8;
+    box-shadow: black;
+}
+
+select {
+    width: 400px;
+    height: 40px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    margin: 3px;
+    font-size: 12px;
+    border-radius: 8px;
+    background-color: #F8F8F8;
+}
+
+textarea {
+    width: 400px;
+    height: 150px;
+}
+
+button {
+    cursor: pointer;
+    background-color: rgb(224, 224, 224);
+    padding: 7px;
+    font-size: 17px;
+    border-radius: 8px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+
+button:hover {
+    transition: .4s;
+    filter: brightness(90%);
+}

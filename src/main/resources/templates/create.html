@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/flex.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/forms.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header class="flex justify-center">
+        <i class="material-icons">shopping_cart</i>
+        <div class="flex column">
+            <h1>SpringBootCommerce</h1>
+            <div>By: &copy; 
+                <a style="color: white;" href="http://github.com/yuredev">
+                    yuredev
+                </a>
+            </div>
+        </div>
+    </header> 
+    <div class="flex column align-center">
+        <h1>Cadastro de Produto</h1>
+        <form action="" class="flex column">
+            <input placeholder="Título">
+            <input placeholder="Vendedor">
+            <input placeholder="Preço">
+            <label for="category">Categoria</label> 
+            <select name="" id="category">
+                <option value="">Computadores</option>
+                <option value="">Celulares</option>
+                <option value="">Roupas</option>
+                <option value="">Eletrodomésticos</option>
+                <option value="">Livros</option>
+            </select>
+            <label for="description">Descrição: </label>
+            <textarea id="description" cols="30" rows="10">
+
+            </textarea>
+            <button type="submit">Confirmar</button>
+        </form>
+    </div>
+</body>
+</html>
