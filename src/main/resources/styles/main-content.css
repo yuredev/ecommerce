@@ -1,0 +1,40 @@
+#main-area {
+    padding: 0px;
+}
+#main-area h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+#products-div {
+    border-style: solid;
+    padding: 50px;
+}
+
+#shopping-cart {
+    border-style: solid;
+    padding: 50px;
+}
+
+.product-unity {
+    background-color: #FBFBFB;
+    border-style: solid;
+    border-color: rgb(107, 107, 107);
+    border-width: 1px;
+    padding: 10px;
+    margin: 2px 0px;
+    border-radius: 10px;
+}
+.product-unity:hover {
+    transition: .3s;
+    filter: brightness(95%);
+}
+.product-unity .product-price {
+    font-weight: 600;
+}
+.link-div {
+    font-size: 0.8rem;
+}
+.delete-link {
+    color: crimson;
+}

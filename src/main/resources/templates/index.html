@@ -5,55 +5,94 @@
     <title>BootCommerce</title>
     <link rel="stylesheet" href="../styles/index.css" type="text/css">
     <link rel="stylesheet" href="../styles/flex.css" type="text/css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/main-content.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+    <nav id="navbar" class="flex column justify-around">
+        <div class="flex column center">
+            <span id="logo-div" class="flex justify-center">
+                <i id="main-icon" class="material-icons">local_grocery_store</i>
+                <h1 id="presentation">BootCommerce</h1>
+            </span>
+            <span id="legend">Spring boot e-commerce</span>
+        </div>
+        <div id="categories" class="flex column justify-around">
+            <h1>Categorias: </h1>
+            <ul>
+                <li>
+                    <a href="#">Computadores</a>
+                </li>
+                <li>
+                    <a href="#">Telefonia</a>
+                </li>
+                <li>
+                    <a href="#">Eletrodomésticos</a>
+                </li>
+                <li>
+                    <a href="#">Eletrônicos</a>
+                </li>
+                <li>
+                    <a href="#">Roupas</a>
+                </li>
+                <li>
+                    <a href="#">Joias e Relógios</a>
+                </li>
+            </ul>
+        </div>
+        <div class="flex justify-center">
+            &copy;
+            Made by: &nbsp;
+            <a style="color: white;" href="http://github.com/yuredev">
+                YureDev
+            </a>
+            , 2020
+        </div>
+    </nav>
     <div id="container" class="flex">
-        <nav id="navbar" class="flex column justify-around">
-            <div class="flex column center">
-                <span id="logo-div" class="flex justify-center">
-                    <i id="main-icon" class="material-icons">local_grocery_store</i>
-                    <h1 id="presentation">BootCommerce</h1>
-                </span>
-                <span id="legend">Spring boot e-commerce</span>
-            </div>
-            <div id="categories" class="flex column justify-around">
-                <h1>Categorias: </h1>
-                <ul>
-                    <li>
-                        <a href="#">Categoria X</a>
-                    </li>
-                    <li>
-                        <a href="#">Categoria X</a>
-                    </li>
-                    <li>
-                        <a href="#">Categoria X</a>
-                    </li>
-                    <li>
-                        <a href="#">Categoria X</a>
-                    </li>
-                    <li>
-                        <a href="#">Categoria X</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex justify-center">
-                &copy;
-                Made by &nbsp;
-                <a style="color: white;" href="http://github.com/yuredev">
-                    YureDev
-                </a>
-                , 2020
-            </div>
-        </nav>
+        <div id="fake-navbar"></div>
         <div class="w100 flex justify-center">
             <main id="main-area" class="flex column h100 w100">
-                <div class="flex justify-around wrap">
-                    <section id="recommended" class="flex column">
-                        <h1></h1>
+                <div class="flex justify-around wrap align-center h100">
+                    <section id="products-div" class="flex column h100">
+                        <h1>Produtos Recomendados </h1>
+                        <div class="product-unity">
+                            <div class="flex justify-between">
+                                <span class="product-title">
+                                    Camisa do Metallica
+                                </span>
+                                <span class="product-price">
+                                    60,30 R$
+                                </span>
+                            </div>
+                            <div class="link-div flex justify-between">
+                                <a href="">
+                                    Adicionar ao Carrinho
+                                </a>
+                                <a class="delete-link" href="#">
+                                    Deletar
+                                </a>
+                            </div>
+                        </div>
                     </section>
-                    <section id="shopping-cart" class="flex column h100 justify-center">
-                        <h1></h1>
+                    <section id="shopping-cart" class="flex column h100">
+                        <h1>Carrinho de Compras: </h1>
+                        <div class="product-unity">
+                            <div class="flex justify-between">
+                                <span class="product-title">
+                                    Camisa do Metallica
+                                </span>
+                                <span class="product-price">
+                                    60,30 R$
+                                </span>
+                            </div>
+                            <div class="link-div flex justify-end">
+                                <a href="" class="delete-link">
+                                    Remover do Carrinho
+                                </a>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </main>
