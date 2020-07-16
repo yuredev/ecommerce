@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="/styles/flex.css">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<header class="flex justify-center">
+    <i class="material-icons">shopping_cart</i>
+    <div class="flex column">
+        <h1>SpringBootCommerce</h1>
+        <div>By: &copy;
+            <a style="color: white;" href="http://github.com/yuredev">
+                yuredev
+            </a>
+        </div>
+    </div>
+</header>
+<div class="flex column align-center">
+    <h1>Cadastro de Produto</h1>
+    <form th:action="@{/save}" class="flex column" th:object="${product}" method="post">
+        <input th:field="*{id}" hidden>
+        <input placeholder="Título" th:field="*{title}">
+        <input placeholder="Vendedor" th:field="*{seller}">
+        <input placeholder="Preço" type="number" th:field="*{price}">
+        <label for="category">Categoria</label>
+        <select name="" id="category" th:field="*{category}">
+            <option value="Computadores">Computadores</option>
+            <option value="Celulares">Celulares</option>
+            <option value="Roupas">Roupas</option>
+            <option value="Eletrodomésticos">Eletrodomésticos</option>
+            <option value="Livros">Livros</option>
+        </select>
+        <label for="description">Descrição: </label>
+        <textarea id="description" cols="30" rows="10" th:field="*{description}">
+                Descrição
+            </textarea>
+        <button type="submit">Confirmar</button>
+    </form>
+</div>
+</body>
+</html>

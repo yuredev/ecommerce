@@ -26,7 +26,7 @@
         <form th:action="@{/save}" class="flex column" th:object="${product}" method="post">
             <input placeholder="Título" th:field="*{title}">
             <input placeholder="Vendedor" th:field="*{seller}">
-            <input placeholder="Preço" th:field="*{price}">
+            <input placeholder="Preço" type="number" th:field="*{price}">
             <label for="category">Categoria</label>
             <select name="" id="category" th:field="*{category}">
                 <option value="Computadores">Computadores</option>

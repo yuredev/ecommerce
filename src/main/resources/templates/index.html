@@ -26,32 +26,16 @@
             <div th:each="product : ${products}" th:object="${product}" class="product-unity flex column justify-between">
                 <div class="flex justify-between">
                     <a th:href="@{'/product/' + *{id} }" th:text="*{title}" class="product-title"></a>
-                    <span th:text="*{price}" class="product-price"></span>
+                    <span th:text="'R$ ' + *{price}" class="product-price"></span>
                 </div>
                 <div class="link-div flex justify-between">
                     <a href="">
                         Adicionar ao Carrinho
                     </a>
-                    <a class="delete-link" href="#">
-                        Deletar
+                    <a class="edit-link" th:href="@{'/edit/' + *{id} }">
+                        Editar
                     </a>
-                </div>
-            </div>
-        </section>
-        <section id="recommended">
-            <h1>Produtos Recomendados: </h1>
-            <div class="product-unity flex column justify-between">
-                <div class="flex justify-between">
-                    <a href="" class="product-title">Exemplo</a>
-                    <span class="product-price">
-                        60,30 R$
-                    </span>
-                </div>
-                <div class="link-div flex justify-between">
-                    <a href="">
-                        Adicionar ao Carrinho
-                    </a>
-                    <a class="delete-link" href="#">
+                    <a class="delete-link" th:href="@{'/delete/' + *{id}}">
                         Deletar
                     </a>
                 </div>

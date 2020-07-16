@@ -3,8 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${product.title}"></title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="/styles/flex.css">
+    <link rel="stylesheet" href="/styles/table.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<!--    <h1 th:text="${product.title}"></h1>-->
+<header class="flex justify-center">
+    <i class="material-icons">shopping_cart</i>
+    <div class="flex column">
+        <h1>SpringBootCommerce</h1>
+        <div>By: &copy;
+            <a style="color: white;" href="http://github.com/yuredev">
+                yuredev
+            </a>
+        </div>
+    </div>
+</header>
+<table th:object="${product}">
+    <tr>
+        <th>ID</th>
+        <td th:text="*{id}"></td>
+    </tr>
+    <tr>
+        <th>Título</th>
+        <td th:text="*{title}"></td>
+    </tr>
+    <tr>
+        <th>Preço</th>
+        <td th:text="'R$ ' + *{price}"></td>
+    </tr>
+    <tr>
+        <th>Categoria</th>
+        <td th:text="*{category}"></td>
+    </tr>
+    <tr>
+        <th>Vendedor</th>
+        <td th:text="*{seller}"></td>
+    </tr>
+    <tr>
+        <th>Descrição</th>
+        <td th:text="*{description}"></td>
+    </tr>
+</table>
+
 </body>
 </html>

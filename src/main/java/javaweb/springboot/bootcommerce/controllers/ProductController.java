@@ -49,4 +49,18 @@ public class ProductController {
         return modelAndView;
     }
 
+    @RequestMapping("edit/{id}")
+    public ModelAndView getEditPage(@PathVariable(name = "id") Long id) {
+        ModelAndView modelAndView = new ModelAndView("edit");
+        Product product = productService.getOne(id);
+        modelAndView.addObject("product", product);
+        return modelAndView;
+    }
+
+    @RequestMapping("delete/{id}")
+    public String delete(@PathVariable(name = "id") Long id) {
+        productService.delete(id);
+        return "redirect:/";
+    }
+
 }

@@ -1,0 +1,21 @@
+table, tr, th, td {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    background-color: #F9F9F9;
+}
+
+th, td {
+    min-width: 170px;
+    padding: 5px;
+}
+
+td {
+    text-align: center;
+}
+
+table {
+    box-shadow: black;
+    margin: auto;
+    border-collapse: collapse;
+}

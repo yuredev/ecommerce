@@ -12,9 +12,9 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity (name = "product")
+@Entity(name = "product")
 public class Product {
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
     private String title;

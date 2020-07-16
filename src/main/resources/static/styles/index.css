@@ -27,6 +27,12 @@ i {
     right: 30px;
 }
 
+#add-product:hover {
+    filter: brightness(120%);
+    transform: scale(1.05);
+    transition: .2s;
+}
+
 body {
     background-color: #EDEDED;
 }
