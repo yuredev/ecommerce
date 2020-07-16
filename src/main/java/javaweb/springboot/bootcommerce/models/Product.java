@@ -22,4 +22,8 @@ public class Product {
     private Double price;
     private String description;
     private String category;
+
+    public Long getId() {
+        return this.id;
+    }
 }
