@@ -29,7 +29,7 @@
                     <span th:text="'R$ ' + *{price}" class="product-price"></span>
                 </div>
                 <div class="link-div flex justify-between">
-                    <a th:href="@{'/?insertInCartId=' + *{id}}">
+                    <a th:href="@{'/?insertId=' + *{id}}">
                         Adicionar ao Carrinho
                     </a>
                     <a class="edit-link" th:href="@{'/edit/' + *{id} }">
@@ -51,7 +51,7 @@
                     </span>
                 </div>
                 <div class="link-div flex justify-center">
-                    <a th:href="@{'/?removeFromCartId=' + *{id}}" class="delete-link">
+                    <a th:href="@{'/?removeId=' + *{id}}" class="delete-link">
                         Remover do Carrinho
                     </a>
                 </div>
