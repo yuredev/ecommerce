@@ -5,11 +5,14 @@ import javaweb.springboot.bootcommerce.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,9 +62,13 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@ModelAttribute Product product) {
-        productService.save(product);
-        return "redirect:/";
+    public String save(@ModelAttribute @Valid Product product, Errors errors) {
+        if (errors.hasErrors()) {
+            return "create";
+        } else {
+            productService.save(product);
+            return "redirect:/";
+        }
     }
 
     @RequestMapping("product/{id}")

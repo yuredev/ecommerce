@@ -19,6 +19,16 @@ i {
     font-size: 40px !important;
 }
 
+.error {
+    text-align: center;
+    padding: 2px;
+    border-style: dotted;
+    border-radius: 10px;
+    border-color: crimson;
+    border-width: 1px;
+    background-color: #AA000022;
+}
+
 #add-product {
     color: rgb(19, 0, 128);
     position: fixed;
