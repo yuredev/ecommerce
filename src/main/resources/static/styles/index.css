@@ -29,6 +29,17 @@ i {
     background-color: #AA000022;
 }
 
+.message {
+    text-align: center;
+    margin-top: 16px;
+    padding: 8px;
+    border-style: dotted;
+    border-radius: 10px;
+    border-color: #777777;
+    border-width: 1px;
+    background-color: #77777744;
+}
+
 #add-product {
     color: rgb(19, 0, 128);
     position: fixed;

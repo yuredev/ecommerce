@@ -9,7 +9,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -25,15 +24,24 @@ public class ProductController {
         this.productService = ps;
     }
 
+//    @RequestMapping("/shopping_cart_add")
+//    public String shoppingCartAdd(HttpServletRequest req) {
+//        HttpSession session = req.getSession();
+//        System.out.println("------------------\n\n\n\nSESSION_ID do shoppingCartList: " + session.getId());
+//        System.out.println("Sessão nova? " + session.isNew());
+//        System.out.println("Carrinho: " +session.getAttribute("shoppingCartList" + "\n\n\n-----------------"));
+//        return "redirect:/";
+//    }
+
     @RequestMapping("/")
-    public ModelAndView getHome(HttpSession session, @RequestParam(required = false) Long insertId, @RequestParam(required = false) Long removeId) {
+    public ModelAndView getHome(HttpSession session, @RequestParam(required = false) Long insertId, @RequestParam(required = false) Long removeId, @RequestParam(required = false) String message) {
         ModelAndView modelAndView = new ModelAndView("index");
+//        System.out.println("------------------\n\n\n\nSESSION_ID da home: " + session.getId() + "\n\n\n-----------------");
 
         List<Product> products = productService.findAll();
         modelAndView.addObject("products", products);
 
-        ArrayList<Product> shoppingCartList = (ArrayList<Product>) session.getAttribute("shopping-cart-list");
-
+        ArrayList<Product> shoppingCartList = (ArrayList<Product>) session.getAttribute("shoppingCartList");
         if (shoppingCartList == null) {
             shoppingCartList = new ArrayList<>();
         }
@@ -42,15 +50,15 @@ public class ProductController {
             // remove o produto com o id igual ao do parametro removeId
             shoppingCartList.removeIf(product -> product.getId().equals(removeId));
             // coloca lista alterada na sessão
-            session.setAttribute("shopping-cart-list", shoppingCartList);
+            session.setAttribute("shoppingCartList", shoppingCartList);
         }
         if (insertId != null) {
             Product productFound = productService.getOne(insertId);
             if (productFound != null) {
                 shoppingCartList.add(productFound);
-                session.setAttribute("shopping-cart-list", shoppingCartList);
             }
         }
+        session.setAttribute("shoppingCartList", shoppingCartList);
         modelAndView.addObject("shoppingCartList", shoppingCartList);
         return modelAndView;
     }
@@ -61,13 +69,22 @@ public class ProductController {
         return "create";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@ModelAttribute @Valid Product product, Errors errors) {
+    @RequestMapping(value = "/save_creation", method = RequestMethod.POST)
+    public String saveCreation(@ModelAttribute @Valid Product product, Errors errors) {
         if (errors.hasErrors()) {
             return "create";
         } else {
             productService.save(product);
-            return "redirect:/";
+            return "redirect:/?message=Cadastrado";
+        }
+    }
+    @RequestMapping(value = "save_edition", method = RequestMethod.POST)
+    public String saveEdition(@ModelAttribute @Valid Product product, Errors errors) {
+        if (errors.hasErrors()) {
+            return "edit";
+        } else {
+            productService.save(product);
+            return "redirect:/?message=Editado";
         }
     }
 
@@ -90,7 +107,7 @@ public class ProductController {
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable(name = "id") Long id) {
         productService.delete(id);
-        return "redirect:/";
+        return "redirect:/?message=Deletado";
     }
 
 }

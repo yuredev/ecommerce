@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/styles/products.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>  
+<body>
+<!--    <a href="/shopping_cart_add">LINK</a>-->
     <header class="flex justify-center">
         <i class="material-icons">shopping_cart</i>
         <div class="flex column">
@@ -22,7 +23,7 @@
     </header>  
     <main id="container" class="w100 flex justify-evenly wrap">
         <section id="products">
-            <h1>Produtos cadastrados: </h1>
+            <h1>Produtos Cadastrados: </h1>
             <div th:each="product : ${products}" th:object="${product}" class="product-unity flex column justify-between">
                 <div class="flex justify-between">
                     <a th:href="@{'/product/' + *{id} }" th:text="*{title}" class="product-title"></a>
@@ -58,8 +59,16 @@
             </div>
         </section>
     </main>
+    <div id="message-div" class="flex justify-center" th:if="${param.message != null}">
+        <p class="message">
+            Produto
+            <span th:text="${param.message}" th:unless="${param.message == null}"></span>
+            Com Sucesso!!
+        </p>
+    </div>
     <a href="/create">
         <i id="add-product" class="material-icons">add_circle</i>
     </a>
+    <script src="/scripts/index.js"></script>
 </body>
 </html>
