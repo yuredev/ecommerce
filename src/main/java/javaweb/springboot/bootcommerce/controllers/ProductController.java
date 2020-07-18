@@ -9,7 +9,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -24,19 +23,9 @@ public class ProductController {
         this.productService = ps;
     }
 
-//    @RequestMapping("/shopping_cart_add")
-//    public String shoppingCartAdd(HttpServletRequest req) {
-//        HttpSession session = req.getSession();
-//        System.out.println("------------------\n\n\n\nSESSION_ID do shoppingCartList: " + session.getId());
-//        System.out.println("Sessão nova? " + session.isNew());
-//        System.out.println("Carrinho: " +session.getAttribute("shoppingCartList" + "\n\n\n-----------------"));
-//        return "redirect:/";
-//    }
-
     @RequestMapping("/")
     public ModelAndView getHome(HttpSession session, @RequestParam(required = false) Long insertId, @RequestParam(required = false) Long removeId, @RequestParam(required = false) String message) {
         ModelAndView modelAndView = new ModelAndView("index");
-//        System.out.println("------------------\n\n\n\nSESSION_ID da home: " + session.getId() + "\n\n\n-----------------");
 
         List<Product> products = productService.findAll();
         modelAndView.addObject("products", products);
@@ -69,22 +58,14 @@ public class ProductController {
         return "create";
     }
 
-    @RequestMapping(value = "/save_creation", method = RequestMethod.POST)
-    public String saveCreation(@ModelAttribute @Valid Product product, Errors errors) {
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String save(@RequestParam String previousPage, @ModelAttribute @Valid Product product, Errors errors) {
         if (errors.hasErrors()) {
-            return "create";
+            return previousPage;
         } else {
             productService.save(product);
-            return "redirect:/?message=Cadastrado";
-        }
-    }
-    @RequestMapping(value = "save_edition", method = RequestMethod.POST)
-    public String saveEdition(@ModelAttribute @Valid Product product, Errors errors) {
-        if (errors.hasErrors()) {
-            return "edit";
-        } else {
-            productService.save(product);
-            return "redirect:/?message=Editado";
+            String message = previousPage.equals("create") ? "Cadastrado" : "Editado";
+            return "redirect:/?message=" + message;
         }
     }
 
@@ -109,5 +90,4 @@ public class ProductController {
         productService.delete(id);
         return "redirect:/?message=Deletado";
     }
-
 }
