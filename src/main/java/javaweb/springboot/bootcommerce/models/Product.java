@@ -1,5 +1,6 @@
 package javaweb.springboot.bootcommerce.models;
 
+import javaweb.springboot.bootcommerce.utils.ErrorMessage;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,15 +23,15 @@ public class Product extends RepresentationModel<Product> {
     @Id
     private Long id;
 
-    @Size(min = 2, max = 40, message = "O Título deve conter entre 2 e 40 caracteres")
-    @NotBlank(message = "O Nome do vendedor não pode estar em branco")
+    @Size(min = 2, max = 40, message = ErrorMessage.NAME_OUT_OF_SIZE)
+    @NotBlank(message = ErrorMessage.NAME_BLANK)
     private String title;
 
-    @NotBlank(message = "O Nome do vendedor não pode estar em branco")
-    @Size(min = 2, max = 40, message = "O Nome do vendedor deve conter entre 2 e 40 caracteres")
+    @NotBlank(message = ErrorMessage.SELLER_NAME_BLANK)
+    @Size(min = 2, max = 40, message = ErrorMessage.SELLER_NAME_OUT_OF_SIZE)
     private String seller;
 
-    @NotNull(message = "O Produto deve ter um preço definido")
+    @NotNull(message = ErrorMessage.NULL_PRICE)
     private Double price;
     private String description;
     
