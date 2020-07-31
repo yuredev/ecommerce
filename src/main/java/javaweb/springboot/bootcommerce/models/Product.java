@@ -3,6 +3,7 @@ package javaweb.springboot.bootcommerce.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @Data
 @Entity(name = "product")
-public class Product {
+public class Product extends RepresentationModel<Product> {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
